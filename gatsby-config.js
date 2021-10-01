@@ -10,5 +10,14 @@ module.exports = {
     title: 'Portafolio de ML',
     description: 'Trabajo realizado por Marcelo de León'  
   },
-  plugins: [],
+  plugins: [
+    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'posts',
+        path: `${__dirname}/src/posts`,
+      },
+    },
+  ],
 }
