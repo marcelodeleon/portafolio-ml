@@ -1,10 +1,10 @@
-import { Link } from 'gatsby'
-import React from 'react'
+import { Link } from "gatsby"
+import React from "react"
 
 export default function Navbar() {
   return (
     <nav>
-      <h1>Navbar</h1>
+      <img src="./marce.png" style={{ width: "50px"}} />
       <div className="links">
         <Link to="/">Principal</Link>
         <Link to="/about">Sobre mi</Link>

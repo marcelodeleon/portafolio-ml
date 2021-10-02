@@ -11,7 +11,7 @@ export default function Layout({ children }) {
         { children }
       </div>
       <footer>
-        Marcelo
+        <p>Trabajo realizado por Marcelo de Leon</p>
       </footer>
     </div>
   )
