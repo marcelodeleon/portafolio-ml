@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 
 import '../styles/global.css'
+import 'katex/dist/katex.min.css'
 
 export default function Layout({ children }) {
   return (
