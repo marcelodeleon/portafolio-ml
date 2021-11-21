@@ -35,7 +35,7 @@ nav .links {
   display: inline-block;
   text-align: right;
 }
-nav a {
+nav a, p > a {
   display: inline-block;
   margin-left: 20px;
   font-weight: 400;
@@ -43,7 +43,7 @@ nav a {
   border-bottom: 3px solid transparent;
   color: #9580FF;
 }
-nav a:hover {
+nav a:hover, p > a:hover {
   border-color: #FF5555;
 }
 footer p{
