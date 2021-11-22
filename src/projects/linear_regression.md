@@ -2,7 +2,9 @@
 title: Regresión Lineal
 headline: Modelo Simple en Excel 
 slug: linear-regression
-tags: ["excel", "regresion lineal"]
+featured: ../images/linear-regression/featured.png
+thumbnail: ../images/linear-regression/thumbnail.png
+tags: ["Excel", "Regresion Lineal", "Planilla Electrónica", "Descenso de Gradiente"]
 ---
 
 A continuación veremos el algoritmo de Regresión Lineal, como generar un modelo para
@@ -117,7 +119,8 @@ $$
 y = B0 + B1 * x 
 $$
 
-Para la primera iteración se destaca lo siguiente:
+Algunas consideraciones al comenzar con el descenso de gradiente:
+  * _alpha_ es 0.01
   * __B0__ y __B1__ se inicializan con 0.0
   * _delta_ = p(i) - y(i)
 
@@ -131,7 +134,7 @@ el error de las predicción en función del numero de iteraciones:
 
 ![](../images/linear-regression/error.png)
 
-Luego de 20 iteracones (o 4 épocas), los valores que obtenemos son:
+Luego de 20 iteraciones (o 4 épocas), los valores que obtenemos son:
 $$
 B0 = 0.230897491
 $$
