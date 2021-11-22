@@ -1,3 +1,7 @@
+.details {
+  max-width: 900px;
+  margin: 0 auto;
+}
 .details h2 {
   font-size: 1.5em;
   margin-top: 80px;
@@ -12,4 +16,15 @@
 }
 .featured {
   margin-bottom: 40px;
+  width: 100%;
+}
+.featured h1 {
+  font-size: 2.5em;
+  color: #9580FF;
+}
+.featured .subheading{
+  font-size: 1em;
+  margin-top: 0;
+  margin-bottom: 1em;
+  color: #FF5555;
 }
