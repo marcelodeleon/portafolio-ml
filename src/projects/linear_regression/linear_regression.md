@@ -2,8 +2,8 @@
 title: Regresión Lineal
 headline: Modelo Simple en Excel 
 slug: linear-regression
-featured: ../images/linear-regression/featured.png
-thumbnail: ../images/linear-regression/thumbnail.png
+featured: ../../images/linear-regression/featured.png
+thumbnail: ../../images/linear-regression/thumbnail.png
 tags: ["Excel", "Regresion Lineal", "Planilla Electrónica", "Descenso de Gradiente"]
 ---
 

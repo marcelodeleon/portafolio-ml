@@ -2,8 +2,8 @@
 title: Regresión Logística
 headline: Modelo en Excel
 slug: logistic-regression
-featured: ../images/logistic-regression/featured.png
-thumbnail: ../images/logistic-regression/thumbnail.png
+featured: ../../images/logistic-regression/featured.png
+thumbnail: ../../images/logistic-regression/thumbnail.png
 tags: ["Excel", "Regresion Logística", "Planilla Electrónica", "Descenso de Gradiente"]
 ---
 
