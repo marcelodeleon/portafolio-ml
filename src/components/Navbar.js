@@ -7,8 +7,9 @@ export default function Navbar() {
       <img src="./marce.png" style={{ width: "50px"}} />
       <div className="links">
         <Link to="/">Principal</Link>
-        <Link to="/about">Sobre mi</Link>
         <Link to="/projects">Proyectos</Link>
+        <Link to="/tags">Tags</Link>
+        <Link to="/about">Sobre mi</Link>
       </div>
     </nav>
   )

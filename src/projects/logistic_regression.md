@@ -1,6 +1,7 @@
 ---
 title: Regresión Logística
 headline: Modelo en Excel
+date: "2021-08-22"
 slug: logistic-regression
 featured: ../images/logistic-regression/featured.png
 thumbnail: ../images/logistic-regression/thumbnail.png

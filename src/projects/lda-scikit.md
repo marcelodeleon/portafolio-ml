@@ -1,6 +1,7 @@
 ---
 title: Análisis Discriminante Lineal (LDA)
 headline: LDA con Python y Scikit Learn
+date: "2021-08-30"
 slug: lda-scikit
 featured: ../images/lda-scikit/featured.png
 thumbnail: ../images/lda-scikit/thumbnail.png

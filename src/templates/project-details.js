@@ -1,5 +1,6 @@
 import React from 'react'
 import Layout from '../components/Layout'
+import Tag from '../components/Tag'
 import { graphql } from 'gatsby'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
@@ -7,15 +8,21 @@ import * as styles from '../styles/project-details.module.css'
 
 const ProjectDetails = ({ data }) => {
   const { html } = data.markdownRemark
-  const { title, headline, featured } = data.markdownRemark.frontmatter
+  const { title, headline, featured, tags } = data.markdownRemark.frontmatter
 
   const featuredImg = getImage(featured)
+  console.log({ tags })
 
   return (
     <Layout>
       <section className={styles.featured}>
         <h1>{title}</h1>
         <p className={styles.subheading}>{headline}</p>
+        <div style={{ "margin-bottom": "3em" }}>
+          {tags.map(tag => (
+            <Tag name={tag} />
+          ))}
+        </div>
         <GatsbyImage image={featuredImg} alt="Featured Image" />
       </section>
       <div className={styles.details}>
@@ -34,6 +41,7 @@ export const query = graphql`
       frontmatter {
         title
         headline
+        tags
         featured {
           childImageSharp {
             gatsbyImageData(

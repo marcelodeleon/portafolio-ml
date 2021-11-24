@@ -1,6 +1,7 @@
 ---
 title: Análisis Discriminante Lineal (LDA)
 headline: Modelado en Excel 
+date: "2021-08-29"
 slug: lda
 featured: ../images/lda/featured.png
 thumbnail: ../images/lda/thumbnail.png

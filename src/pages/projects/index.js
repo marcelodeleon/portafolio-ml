@@ -5,7 +5,6 @@ import { Link, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const Projects = ({ data }) => {
-  console.log(data)
   const projects = data.allMarkdownRemark.nodes
 
   return (

@@ -1,7 +1,9 @@
 ---
 title: Procesamiento previo de los datos
 headline: Datos faltantes, normalización y outliers.
+date: "2021-04-05"
 slug: data-preprocessing
+tags: ["Empty"]
 ---
 
 Gran parte de la tarea y el esfuerzo del desarrollo de modelos de Machine

@@ -71,3 +71,7 @@ table {
   margin-left: auto;
   margin-right: auto;
 }
+h1 {
+  font-size: 2.5em;
+  color: #9580FF;
+}
