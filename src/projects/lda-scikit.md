@@ -5,7 +5,7 @@ date: "2021-08-30"
 slug: lda-scikit
 featured: ../images/lda-scikit/featured.png
 thumbnail: ../images/lda-scikit/thumbnail.png
-tags: ["Python", "LDA", "Scikit Learn", "Análisis Discriminante Lineal", "Pandas"]
+tags: ["Python", "LDA", "Scikit Learn", "Análisis Discriminante Lineal", "Pandas", "Algoritmos Lineales"]
 ---
 
 Scikit Learn es una libreria de Python para trabajar con Machine Learning, a 

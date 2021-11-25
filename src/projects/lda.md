@@ -5,7 +5,7 @@ date: "2021-08-29"
 slug: lda
 featured: ../images/lda/featured.png
 thumbnail: ../images/lda/thumbnail.png
-tags: ["Excel", "LDA", "Planilla Electrónica", "Análisis Discriminante Lineal"]
+tags: ["Excel", "LDA", "Planilla Electrónica", "Análisis Discriminante Lineal", "Algoritmos Lineales"]
 ---
 
 El algoritmo de Análisis Discriminante Lineal es otro método para resolver problemas de
