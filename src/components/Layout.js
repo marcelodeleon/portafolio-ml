@@ -12,7 +12,7 @@ export default function Layout({ children }) {
         { children }
       </div>
       <footer>
-        <p>Trabajo realizado por Marcelo de Leon</p>
+        <p>Trabajo realizado por Marcelo de León</p>
       </footer>
     </div>
   )

@@ -24,7 +24,7 @@ ul {
   margin-bottom: 1em;
   margin-left: 3em;
 }
-li {
+li, li > li {
   line-height: 1.5em;
   font-size: 1.3em;
 }
@@ -42,7 +42,7 @@ nav .links {
   display: inline-block;
   text-align: right;
 }
-nav a, p > a {
+nav a {
   display: inline-block;
   margin-left: 20px;
   font-weight: 400;
@@ -50,7 +50,7 @@ nav a, p > a {
   border-bottom: 3px solid transparent;
   color: #9580FF;
 }
-nav a:hover, p > a:hover {
+nav a:hover {
   border-color: #FF5555;
 }
 footer p{
