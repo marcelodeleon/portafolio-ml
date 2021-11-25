@@ -44,4 +44,9 @@ figcaption {
   color: #FF5555;
   text-align: center;
   margin-top: 1em;
+  margin-bottom: 1em;
+}
+figure {
+  margin-top: 3em;
+  margin-bottom: 1em;
 }
