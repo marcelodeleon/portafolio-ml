@@ -5,7 +5,7 @@ date: "2021-09-20"
 slug: cart-knime
 featured: ../images/cart-knime/featured.png
 thumbnail: ../images/cart-knime/thumbnail.png
-tags: ["KNIME", "Árbol de Decisión de Regresión"]
+tags: ["KNIME", "Árbol de Decisión de Regresión", "Algoritmos Supervisados"]
 ---
 
 # Descripción del Modelo 

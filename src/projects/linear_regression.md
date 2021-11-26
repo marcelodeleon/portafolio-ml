@@ -5,7 +5,7 @@ date: "2021-08-20"
 slug: linear-regression
 featured: ../images/linear-regression/featured.png
 thumbnail: ../images/linear-regression/thumbnail.png
-tags: ["Excel", "Regresion Lineal", "Planilla Electrónica", "Descenso de Gradiente", "Algoritmos Lineales"]
+tags: ["Excel", "Regresion Lineal", "Planilla Electrónica", "Descenso de Gradiente", "Algoritmos Lineales", "Algoritmos Supervisados"]
 ---
 
 A continuación veremos el algoritmo de Regresión Lineal, como generar un modelo para

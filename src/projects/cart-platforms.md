@@ -5,7 +5,7 @@ date: "2021-10-05"
 slug: cart-platforms
 featured: ../images/cart-platforms/featured.jpg
 thumbnail: ../images/cart-platforms/thumbnail.png
-tags: ["Python", "Scikit Learn", "Árboles de Decisión", "CART", "KNIME", "Weka", "RapidMiner", "IRIS"]
+tags: ["Python", "Scikit Learn", "Árboles de Decisión", "CART", "KNIME", "Weka", "RapidMiner", "IRIS", "Algoritmos Supervisados"]
 ---
 
 Existen varias plataformas para trabajar con algoritmos de Machine Learning, en

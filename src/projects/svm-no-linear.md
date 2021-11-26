@@ -5,7 +5,7 @@ date: "2021-10-03"
 slug: svm-no-lineal
 featured: ../images/svm-no-lineal/featured.png
 thumbnail: ../images/svm-no-lineal/thumbnail.png
-tags: ["RapidMiner", "SVM", "Support Vector Machines", "Algoritmos No Lineales"]
+tags: ["RapidMiner", "SVM", "Support Vector Machines", "Algoritmos No Lineales", "Algoritmos Supervisados"]
 ---
 
 En el siguiente trabajo exploraremos el algoritmo de Support Vector Machines,

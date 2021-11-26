@@ -5,7 +5,7 @@ date: "2021-10-03"
 slug: bayes-play-tennis
 featured: ../images/bayes-play-tennis/featured.png
 thumbnail: ../images/bayes-play-tennis/thumbnail.png
-tags: ["Excel", "Naïve Bayes", "Algoritmos No Lineales"]
+tags: ["Excel", "Naïve Bayes", "Algoritmos No Lineales", "Algoritmos Supervisados"]
 ---
 
 A continuación veremos un algoritmo no lineal de Machine Learning basado en el estudio
