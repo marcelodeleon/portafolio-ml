@@ -1,6 +1,6 @@
 ---
 title: K-Nearest Neighbors (k-NN)
-headline: KNN
+headline: Desarrollo del algoritmo k-NN e implementación en RapidMiner.
 date: "2021-10-23"
 slug: knn
 featured: ../images/knn/featured.png
