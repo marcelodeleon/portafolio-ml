@@ -5,7 +5,7 @@ date: "2021-10-23"
 slug: k-means-cardio
 featured: ../images/k-means-cardio/featured.png
 thumbnail: ../images/k-means-cardio/thumbnail.png
-tags: ["K-Means", "Algoritmos No Lineales", "Algoritmos No Supervisados", "RapidMiner", "Clustering", "Outliers"]
+tags: ["K-Means", "Algoritmos No Lineales", "Algoritmos No Supervisados", "RapidMiner", "Clustering", "Preparación del Dataset"]
 ---
 
 A continuación veremos un algoritmo de Machine Learning no supervisado llamado "K-Means".
@@ -41,7 +41,7 @@ Dado que K-Means se ve realmente afectado por estos valores, filtraremos los out
 del dataset de entrenamiento.
 
 ## Normalización de Datos
-Otro punto importante en K-Menans es asegurarse que los atributos estén centrados y escalados.
+Otro punto importante en K-Means es asegurarse que los atributos estén centrados y escalados.
 Podemos lograr eso con el operador __Normalize__ de RapidMiner, a continuación se muestra
 el impacto en los atributos del dataset luego del tratamiento.
 

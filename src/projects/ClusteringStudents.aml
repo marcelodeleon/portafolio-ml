@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<attributeset default_source="ClusteringStudents" encoding="windows-1252">
+  <attribute name="Students_success" sourcecol="1" valuetype="polynominal">
+    <value>Bad</value>
+    <value>Good</value>
+    <value>Excellent</value>
+  </attribute>
+  <attribute name="Sex" sourcecol="2" valuetype="integer"/>
+  <attribute name="EntranceExam" sourcecol="3" valuetype="real"/>
+  <attribute name="Average_Grade" sourcecol="4" valuetype="real"/>
+  <attribute name="Region" sourcecol="5" valuetype="nominal">
+    <value>Region_1</value>
+    <value>Region_2</value>
+    <value>Region_3</value>
+    <value>Region_4</value>
+    <value>Region_5</value>
+    <value>Region_6</value>
+  </attribute>
+  <attribute name="Exam1" sourcecol="6" valuetype="integer"/>
+  <attribute name="Exam2" sourcecol="7" valuetype="integer"/>
+  <attribute name="Exam3" sourcecol="8" valuetype="integer"/>
+  <attribute name="Exam4" sourcecol="9" valuetype="integer"/>
+  <attribute name="Exam5" sourcecol="10" valuetype="integer"/>
+  <attribute name="Exam6" sourcecol="11" valuetype="integer"/>
+  <attribute name="Exam7" sourcecol="12" valuetype="integer"/>
+  <attribute name="Exam8" sourcecol="13" valuetype="integer"/>
+  <attribute name="Exam9" sourcecol="14" valuetype="integer"/>
+  <attribute name="Exam10" sourcecol="15" valuetype="integer"/>
+  <attribute name="Exam11" sourcecol="16" valuetype="integer"/>
+  <attribute name="Exam12" sourcecol="17" valuetype="integer"/>
+</attributeset>
