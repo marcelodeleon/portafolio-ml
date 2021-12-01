@@ -24,7 +24,7 @@ ul {
   margin-bottom: 1em;
   margin-left: 3em;
 }
-li, li > li {
+li, li > ul > li {
   line-height: 1.5em;
   font-size: 1.3em;
 }
