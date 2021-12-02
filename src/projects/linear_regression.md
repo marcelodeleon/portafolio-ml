@@ -1,11 +1,11 @@
 ---
 title: Regresión Lineal
-headline: Modelo Simple en Excel 
-date: "2021-08-20"
+headline: Modelado en Excel con dataset artificial.
+date: 2021-08-20
 slug: linear-regression
 featured: ../images/linear-regression/featured.png
 thumbnail: ../images/linear-regression/thumbnail.png
-tags: ["Excel", "Regresion Lineal", "Planilla Electrónica", "Descenso de Gradiente", "Algoritmos Lineales", "Algoritmos Supervisados"]
+tags: ["Excel", "Regresión Lineal", "Planilla Electrónica", "Descenso de Gradiente", "Algoritmos Lineales", "Algoritmos Supervisados", "Modelado","Regresión"]
 ---
 
 A continuación veremos el algoritmo de Regresión Lineal, como generar un modelo para

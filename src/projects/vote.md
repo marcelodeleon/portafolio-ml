@@ -1,7 +1,7 @@
 ---
 title: Algoritmos de Ensamble
 headline: Comparación de los algoritmos de Votación y Bagging en el dataset Iris.
-date: "2021-11-26"
+date: 2021-11-26
 slug: vote
 featured: ../images/vote/featured.jpg
 thumbnail: ../images/vote/thumbnail.jpg

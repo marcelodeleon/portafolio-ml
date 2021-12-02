@@ -18,7 +18,7 @@ const ProjectDetails = ({ data }) => {
       <section className={styles.featured}>
         <h1>{title}</h1>
         <p className={styles.subheading}>{headline}</p>
-        <div style={{ "margin-bottom": "3em" }}>
+        <div style={{ "margin-bottom": "3em", "text-align": "center" }}>
           {tags.map(tag => (
             <Tag name={tag} />
           ))}
@@ -33,6 +33,13 @@ const ProjectDetails = ({ data }) => {
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>
+      <section className={styles.featured}>
+        <div style={{ "margin-bottom": "3em", "text-align": "center" }}>
+          {tags.map(tag => (
+            <Tag name={tag} />
+          ))}
+        </div>
+      </section>
     </Layout>
   )
 }

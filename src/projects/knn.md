@@ -1,11 +1,11 @@
 ---
 title: K-Nearest Neighbors (k-NN)
 headline: Desarrollo del algoritmo k-NN e implementación en RapidMiner.
-date: "2021-10-23"
+date: 2021-10-23
 slug: knn
 featured: ../images/knn/featured.png
 thumbnail: ../images/knn/thumbnail.png
-tags: ["k-NN", "Algoritmos No Lineales", "Algoritmos Supervisados", "RapidMiner", "Excel"]
+tags: ["k-NN", "Algoritmos No Lineales", "Algoritmos Supervisados", "RapidMiner", "Excel", "Preparación del Dataset", "Modelado", "Clasificación"]
 ---
 
 K-Nearest Neighbors es un algoritmo de Machine Learning supervisado que puede

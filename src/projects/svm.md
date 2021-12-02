@@ -1,11 +1,11 @@
 ---
 title: Support Vector Machines
 headline: Modelado en Excel utilizando SVM Lineal 
-date: "2021-09-30"
+date: 2021-09-30
 slug: svm
 featured: ../images/svm/featured.png
 thumbnail: ../images/svm/thumbnail.png
-tags: ["Excel", "SVM", "Planilla Electrónica", "Support Vector Machines", "Algoritmos Lineales", "Algoritmos Supervisados"]
+tags: ["Excel", "Planilla Electrónica", "Support Vector Machines", "Algoritmos Lineales", "Algoritmos Supervisados", "Clasificación", "Modelado"]
 ---
 
 En el siguiente trabajo veremos el algoritmo de Support Vector Machines, nos

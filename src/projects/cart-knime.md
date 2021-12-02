@@ -1,11 +1,11 @@
 ---
-title: Árbol de Decisión de Regresión
-headline: Modelo con KNIME
-date: "2021-09-20"
+title: Árbol de Decisión de Regresión en KNIME
+headline: Estimación del ancho del pétalo de plantas de la familia Iris.
+date: 2021-10-05
 slug: cart-knime
 featured: ../images/cart-knime/featured.png
 thumbnail: ../images/cart-knime/thumbnail.png
-tags: ["KNIME", "Árbol de Decisión de Regresión", "Algoritmos Supervisados"]
+tags: ["KNIME", "CART", "Algoritmos Supervisados", "Regresión", "Modelado", "Algoritmos No Lineales"]
 ---
 
 # Descripción del Modelo 
@@ -114,6 +114,8 @@ R^2: 0.897\\
 \text{Mean signed difference: 0.053}\\
 $$
 
+Como se puede observar, los resultados de la predicción del ancho del pétalo
+son realmente muy buenos. Los valores de R<sup>2</sup> encima de 0.85 son estimaciones muy precisas.
 # Recursos
 [>> Dataset Iris](iris.data)
 [>> Proyecto KNIME](cart-knime.knwf)

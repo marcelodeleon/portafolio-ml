@@ -28,13 +28,13 @@ const Tags = ({ pageContext, data }) => {
               <li
                 key={slug}
                 style={{
-                  "text-align": "center",
+                  "text-align": "left",
                   "list-style-type": "none",
-                  "padding-bottom": "0.5em",
+                  "padding-bottom": "0.7em",
                 }}
               >
-                <Link style={{ color: "#FF5555" }} to={`/projects/${slug}`}>
-                  {title}: {headline}
+                <Link to={`/projects/${slug}`}>
+                  {title} - {headline}
                 </Link>
               </li>
             )

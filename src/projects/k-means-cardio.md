@@ -1,11 +1,11 @@
 ---
-title: K-Means 
+title: Prevención de enfermedades cardíacas.
 headline: Aplicación de K-Means en dataset de pacientes médicos.
-date: "2021-10-23"
+date: 2021-11-01
 slug: k-means-cardio
-featured: ../images/k-means-cardio/featured.png
+featured: ../images/k-means-cardio/featured.jpg
 thumbnail: ../images/k-means-cardio/thumbnail.png
-tags: ["K-Means", "Algoritmos No Lineales", "Algoritmos No Supervisados", "RapidMiner", "Clustering", "Preparación del Dataset"]
+tags: ["K-Means", "Algoritmos No Lineales", "Algoritmos No Supervisados", "RapidMiner", "Clustering", "Preparación del Dataset", "Caso de Estudio", "Modelado"]
 ---
 
 A continuación veremos un algoritmo de Machine Learning no supervisado llamado "K-Means".

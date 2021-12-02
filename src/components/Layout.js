@@ -20,16 +20,20 @@ export default function Layout({ children }) {
             toempong
           </a>
           {", "}
+          <a href="https://www.flaticon.com/authors/srip" title="srip">
+            srip
+          </a>
+          {", "}
           <a
             href="https://www.flaticon.com/authors/flat-icons"
             title="Flat Icons"
           >
             Flat Icons
-          </a>{" y "}
+          </a>
+          {" y "}
           <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">
             Eucalyp
-          </a>
-          {" "}
+          </a>{" "}
           obtenidos en{" "}
           <a href="https://www.flaticon.com/" title="Flaticon">
             www.flaticon.com

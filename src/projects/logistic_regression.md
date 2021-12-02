@@ -1,11 +1,11 @@
 ---
 title: Regresión Logística
-headline: Modelo en Excel
-date: "2021-08-22"
+headline: Implementación del algoritmo de Regresión Logística en una planilla electrónica
+date: 2021-08-22
 slug: logistic-regression
 featured: ../images/logistic-regression/featured.png
 thumbnail: ../images/logistic-regression/thumbnail.png
-tags: ["Excel", "Regresion Logística", "Planilla Electrónica", "Descenso de Gradiente", "Algoritmos Lineales", "Algoritmos Supervisados"]
+tags: ["Excel", "Regresion Logística", "Planilla Electrónica", "Descenso de Gradiente", "Algoritmos Lineales", "Algoritmos Supervisados", "Modelado", "Regresión"]
 ---
 
 En el siguiente trabajo veremos el algoritmo de regresión logística, el

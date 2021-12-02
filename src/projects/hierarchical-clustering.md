@@ -1,11 +1,11 @@
 ---
 title: Clustering Jerárquico
 headline: Comparación entre Clustering Jerárquico (Bottom-up y Top-down), y K-Means en RapidMiner.
-date: "2021-11-01"
+date: 2021-11-02
 slug: hierarchical-clustering
 featured: ../images/hierarchical-clustering/featured.png
 thumbnail: ../images/hierarchical-clustering/thumbnail.png
-tags: ["K-Means", "Algoritmos No Lineales", "Algoritmos No Supervisados", "RapidMiner", "Clustering", "Clustering Jerárquico", "Clustering Aglomerativo", "Clustering Divisivo"]
+tags: ["K-Means", "Algoritmos No Lineales", "Algoritmos No Supervisados", "RapidMiner", "Clustering", "Clustering Jerárquico", "Clustering Aglomerativo", "Clustering Divisivo", "Modelado", "Preparación del Dataset"]
 ---
 
 Los algoritmos de Clustering Jerárquicos funcionan de manera diferente a otros algoritmos

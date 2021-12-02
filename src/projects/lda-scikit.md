@@ -1,11 +1,11 @@
 ---
 title: Análisis Discriminante Lineal (LDA)
 headline: LDA con Python y Scikit Learn
-date: "2021-08-30"
+date: 2021-08-30
 slug: lda-scikit
 featured: ../images/lda-scikit/featured.png
 thumbnail: ../images/lda-scikit/thumbnail.png
-tags: ["Python", "LDA", "Scikit Learn", "Análisis Discriminante Lineal", "Pandas", "Algoritmos Lineales", "Algoritmos Supervisados"]
+tags: ["Python", "Scikit Learn", "Análisis Discriminante Lineal", "Pandas", "Algoritmos Lineales", "Algoritmos Supervisados", "Clasificación", "Modelado"]
 ---
 
 Scikit Learn es una libreria de Python para trabajar con Machine Learning, a 

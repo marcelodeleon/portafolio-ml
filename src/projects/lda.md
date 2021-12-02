@@ -1,11 +1,11 @@
 ---
 title: Análisis Discriminante Lineal (LDA)
-headline: Modelado en Excel 
-date: "2021-08-29"
+headline: Implementación del algoritmo LDA en planilla electrónica.
+date: 2021-08-29
 slug: lda
 featured: ../images/lda/featured.png
 thumbnail: ../images/lda/thumbnail.png
-tags: ["Excel", "LDA", "Planilla Electrónica", "Análisis Discriminante Lineal", "Algoritmos Lineales", "Algoritmos Supervisados"]
+tags: ["Excel", "Planilla Electrónica", "Análisis Discriminante Lineal", "Algoritmos Lineales", "Algoritmos Supervisados", "Clasificación", "Modelado"]
 ---
 
 El algoritmo de Análisis Discriminante Lineal es otro método para resolver problemas de

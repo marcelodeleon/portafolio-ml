@@ -1,11 +1,11 @@
 ---
 title: DBSCAN
 headline: Aplicación de DBSCAN en RapidMiner utilizando el dataset Iris.
-date: "2021-10-23"
+date: 2021-10-31
 slug: dbscan
 featured: ../images/dbscan/featured.png
 thumbnail: ../images/dbscan/thumbnail.png
-tags: ["DBSCAN", "Algoritmos No Lineales", "Algoritmos No Supervisados", "RapidMiner", "Clustering"]
+tags: ["DBSCAN", "Algoritmos No Lineales", "Algoritmos No Supervisados", "RapidMiner", "Clustering", "Modelado"]
 ---
 
 DBSCAN es un algoritmo no supervisado de Machine Learning, el algoritmo se encarga de

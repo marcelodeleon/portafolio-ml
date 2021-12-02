@@ -6,7 +6,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const { data } = await graphql(`
     query Articles {
       postsRemark: allMarkdownRemark(
-        sort: { order: ASC, fields: [frontmatter___date] }
         limit: 2000
       ) {
         nodes {
@@ -24,7 +23,9 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  data.postsRemark.nodes.forEach(node => {
+  const nodes = data.postsRemark.nodes
+
+  nodes.forEach(node => {
     actions.createPage({
       path: '/projects/'+ node.frontmatter.slug,
       component: path.resolve('./src/templates/project-details.js'),

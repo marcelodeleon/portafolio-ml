@@ -1,11 +1,11 @@
 ---
 title: Principal Components Analisis (PCA)
 headline: Aplicación de PCA para reducir las dimensiones del dataset.
-date: "2021-10-25"
+date: 2021-10-25
 slug: pca
 featured: ../images/pca/featured.png
 thumbnail: ../images/pca/thumbnail.png
-tags: ["K-Means", "Algoritmos No Lineales", "Algoritmos No Supervisados", "RapidMiner", "Clustering", "Preparación del Dataset", "PCA"]
+tags: ["K-Means", "Algoritmos No Lineales", "Algoritmos No Supervisados", "RapidMiner", "Clustering", "Preparación del Dataset", "PCA", "Feature Engineering"]
 ---
 Los datasets de Machine Learning pueden tener una gran cantidad de atributos, esto
 implica que los esfuerzos para poder analizar los datos, prepararlos y entrenar los

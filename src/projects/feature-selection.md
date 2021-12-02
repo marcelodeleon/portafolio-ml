@@ -1,11 +1,11 @@
 ---
 title: Feature Selection
 headline: Estrategias para simplificar y mejorar los datasets; y los resultados del modelo.
-date: "2021-10-24"
+date: 2021-10-24
 slug: feature-selection
 featured: ../images/feature-selection/featured.png
 thumbnail: ../images/feature-selection/thumbnail.png
-tags: ["Feature Selection", "Preparación del Dataset", "RapidMiner", "Cross Validation", "Naïve Bayes"]
+tags: ["Feature Selection", "Preparación del Dataset", "RapidMiner", "Naïve Bayes", "Feature Engineering"]
 ---
 
 Feature Selection (en español llamado selección de atributos), es un método

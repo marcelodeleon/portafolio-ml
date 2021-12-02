@@ -1,11 +1,11 @@
 ---
 title: Support Vector Machines (No lineal)
 headline: Modelado en RapidMiner con Dataset no Lineal
-date: "2021-10-03"
+date: 2021-10-03
 slug: svm-no-lineal
 featured: ../images/svm-no-lineal/featured.png
 thumbnail: ../images/svm-no-lineal/thumbnail.png
-tags: ["RapidMiner", "SVM", "Support Vector Machines", "Algoritmos No Lineales", "Algoritmos Supervisados"]
+tags: ["RapidMiner", "Support Vector Machines", "Algoritmos No Lineales", "Algoritmos Supervisados", "Modelado", "Clasificación", "Caso de Estudio"]
 ---
 
 En el siguiente trabajo exploraremos el algoritmo de Support Vector Machines,

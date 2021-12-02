@@ -40,6 +40,11 @@
 }
 .promote { 
   display: flex;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+.promote:active { 
+  transform: scale(0.98);
 }
 .promote p {
   margin: 1em;

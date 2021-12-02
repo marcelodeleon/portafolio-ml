@@ -1,7 +1,7 @@
 ---
 title: Estudio de Enfermedad Crónica de Riñón
 headline: Utilizando algoritmos de Ensable (Adaboost y RandomForest)
-date: "2021-10-25"
+date: 2021-11-29
 slug: kidney-disease
 featured: ../images/kidney-disease/featured.jpg
 thumbnail: ../images/kidney-disease/thumbnail.jpg

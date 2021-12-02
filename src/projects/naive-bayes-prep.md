@@ -1,11 +1,11 @@
 ---
 title: Naïve Bayes con Atributos Continuos
 headline: Cómo preparar datasets con atributos continuos en RapidMiner para un clasificador Naïve Bayes
-date: "2021-10-22"
+date: 2021-10-22
 slug: naive-bayes-prep
-featured: ../images/naive-bayes-prep/featured.png
-thumbnail: ../images/naive-bayes-prep/thumbnail.png
-tags: ["RapidMiner", "Naïve Bayes", "Algoritmos No Lineales", "Algoritmos Supervisados"]
+featured: ../images/naive-bayes-prep/modelo-cat.png
+thumbnail: ../images/naive-bayes-prep/modelo-cat.png
+tags: ["RapidMiner", "Naïve Bayes", "Algoritmos No Lineales", "Algoritmos Supervisados", "Clasificación", "Modelado", "Preparación del Dataset", "Clasificación"]
 ---
 Es muy común tener datasets con atributos numéricos que representan variables
 continuas, para la mayoría de los algoritmos de Machine Learning esto no es un

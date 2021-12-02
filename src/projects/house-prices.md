@@ -1,11 +1,11 @@
 ---
 title: Venta de propiedades en Ames, Iowa.
 headline: Estimación de precios de ventas utilizando algoritmos de regresión. 
-date: "2021-11-25"
+date: 2021-11-30
 slug: house-pricing
 featured: ../images/house-pricing/featured.jpg
 thumbnail: ../images/house-pricing/thumbnail.png
-tags: ["Caso de Estudio", "Regresión", "Preparación del Dataset", "Proyecto Principal", "Votación", "Ensambles", "SVM", "Gradient Boosted Trees", "Regresión Linear"]
+tags: ["Caso de Estudio", "Regresión", "Preparación del Dataset", "Proyecto Principal", "Votación", "Ensambles", "Gradient Boosted Trees", "Regresión Lineal", "Feature Engineering", "PCA", "Modelado"]
 ---
 
 # Caso de Estudio

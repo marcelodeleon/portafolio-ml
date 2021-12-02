@@ -1,11 +1,11 @@
 ---
 title: Data Mining Educacional
 headline: Agrupación de estudiantes utilizando diversos mecanismos de clustering.
-date: "2021-11-05"
+date: 2021-11-05
 slug: clustering-all
 featured: ../images/clustering-all/featured.png
 thumbnail: ../images/clustering-all/thumbnail.png
-tags: ["K-Means", "Algoritmos No Lineales", "Algoritmos No Supervisados", "RapidMiner", "Clustering", "Clustering Jerárquico", "Clustering Aglomerativo", "Clustering Divisivo", "DBSCAN", "Preparación del Dataset"]
+tags: ["K-Means", "Algoritmos No Lineales", "Algoritmos No Supervisados", "RapidMiner", "Clustering", "Clustering Jerárquico", "Clustering Aglomerativo", "Clustering Divisivo", "DBSCAN", "Preparación del Dataset", "Modelado", "Caso de Estudio"]
 ---
 
 Aplicaremos diferentes métodos de clustering a un dataset educacional, el

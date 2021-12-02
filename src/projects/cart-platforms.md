@@ -1,11 +1,11 @@
 ---
 title: Arboles de Decisión en las Diferentes Plataformas
 headline: RapidMiner, Weka, KNIME y Python Scikit Learn
-date: "2021-10-05"
+date: 2021-10-05
 slug: cart-platforms
 featured: ../images/cart-platforms/featured.jpg
 thumbnail: ../images/cart-platforms/thumbnail.png
-tags: ["Python", "Scikit Learn", "Árboles de Decisión", "CART", "KNIME", "Weka", "RapidMiner", "IRIS", "Algoritmos Supervisados"]
+tags: ["Python", "Scikit Learn", "Árboles de Decisión", "CART", "KNIME", "Weka", "RapidMiner", "Algoritmos Supervisados", "Modelado", "Clasificación", "Regresión", "Caso de Estudio"]
 ---
 
 Existen varias plataformas para trabajar con algoritmos de Machine Learning, en
@@ -278,7 +278,7 @@ al clasificar correctamente 4 instancias de _Iris-virginica_.
 ## Scikit Learn
 Realizaremos el mismo ejercicio en Scikit Learn, para esto utilizaremos Google
 Colab.  Cargamos el dataset de IRIS desde Scikit Learn y lo modelamos con el
-operador __Decision_Tree_Classifier_. Entrenamos el modelo y luego hacemos una predicción
+operador __Decision_Tree_Classifier__. Entrenamos el modelo y luego hacemos una predicción
 para ver su desempeño.
 
 ![Dependencias y carga de datos](../images/cart-platforms/import-n-data.png)
