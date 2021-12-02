@@ -15,7 +15,69 @@
       <operator activated="true" class="retrieve" compatibility="9.10.000" expanded="true" height="68" name="Retrieve Iris" width="90" x="45" y="34">
         <parameter key="repository_entry" value="//Samples/data/Iris"/>
       </operator>
-      <operator activated="true" class="multiply" compatibility="9.10.000" expanded="true" height="145" name="Multiply (3)" width="90" x="112" y="238"/>
+      <operator activated="true" class="multiply" compatibility="9.10.000" expanded="true" height="166" name="Multiply (3)" width="90" x="112" y="238"/>
+      <operator activated="true" class="split_validation" compatibility="9.10.000" expanded="true" height="124" name="Validation Bagging" width="90" x="313" y="799">
+        <parameter key="create_complete_model" value="false"/>
+        <parameter key="split" value="relative"/>
+        <parameter key="split_ratio" value="0.7"/>
+        <parameter key="training_set_size" value="100"/>
+        <parameter key="test_set_size" value="-1"/>
+        <parameter key="sampling_type" value="shuffled sampling"/>
+        <parameter key="use_local_random_seed" value="true"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <process expanded="true">
+          <operator activated="true" class="bagging" compatibility="9.10.000" expanded="true" height="82" name="Bagging" width="90" x="179" y="34">
+            <parameter key="sample_ratio" value="0.9"/>
+            <parameter key="iterations" value="10"/>
+            <parameter key="average_confidences" value="true"/>
+            <parameter key="use_local_random_seed" value="false"/>
+            <parameter key="local_random_seed" value="1992"/>
+            <process expanded="true">
+              <operator activated="true" class="concurrency:parallel_decision_tree" compatibility="9.10.000" expanded="true" height="103" name="Decision Tree (3)" width="90" x="313" y="34">
+                <parameter key="criterion" value="gain_ratio"/>
+                <parameter key="maximal_depth" value="10"/>
+                <parameter key="apply_pruning" value="true"/>
+                <parameter key="confidence" value="0.1"/>
+                <parameter key="apply_prepruning" value="true"/>
+                <parameter key="minimal_gain" value="0.01"/>
+                <parameter key="minimal_leaf_size" value="2"/>
+                <parameter key="minimal_size_for_split" value="4"/>
+                <parameter key="number_of_prepruning_alternatives" value="3"/>
+              </operator>
+              <connect from_port="training set" to_op="Decision Tree (3)" to_port="training set"/>
+              <connect from_op="Decision Tree (3)" from_port="model" to_port="model"/>
+              <portSpacing port="source_training set" spacing="0"/>
+              <portSpacing port="sink_model" spacing="0"/>
+            </process>
+          </operator>
+          <connect from_port="training" to_op="Bagging" to_port="training set"/>
+          <connect from_op="Bagging" from_port="model" to_port="model"/>
+          <connect from_op="Bagging" from_port="example set" to_port="through 1"/>
+          <portSpacing port="source_training" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_through 1" spacing="0"/>
+          <portSpacing port="sink_through 2" spacing="0"/>
+        </process>
+        <process expanded="true">
+          <operator activated="true" class="apply_model" compatibility="9.10.000" expanded="true" height="82" name="Apply Model (5)" width="90" x="112" y="34">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="performance" compatibility="9.10.000" expanded="true" height="82" name="Performance bagging" width="90" x="246" y="34">
+            <parameter key="use_example_weights" value="true"/>
+          </operator>
+          <connect from_port="model" to_op="Apply Model (5)" to_port="model"/>
+          <connect from_port="test set" to_op="Apply Model (5)" to_port="unlabelled data"/>
+          <connect from_op="Apply Model (5)" from_port="labelled data" to_op="Performance bagging" to_port="labelled data"/>
+          <connect from_op="Performance bagging" from_port="performance" to_port="averagable 1"/>
+          <portSpacing port="source_model" spacing="0"/>
+          <portSpacing port="source_test set" spacing="0"/>
+          <portSpacing port="source_through 1" spacing="0"/>
+          <portSpacing port="source_through 2" spacing="0"/>
+          <portSpacing port="sink_averagable 1" spacing="0"/>
+          <portSpacing port="sink_averagable 2" spacing="0"/>
+        </process>
+      </operator>
       <operator activated="true" class="split_validation" compatibility="9.10.000" expanded="true" height="124" name="Validation CART" width="90" x="313" y="595">
         <parameter key="create_complete_model" value="false"/>
         <parameter key="split" value="relative"/>
@@ -153,7 +215,7 @@
           <portSpacing port="sink_averagable 2" spacing="0"/>
         </process>
       </operator>
-      <operator activated="true" class="split_validation" compatibility="9.10.000" expanded="true" height="124" name="Validation" width="90" x="313" y="34">
+      <operator activated="true" class="split_validation" compatibility="9.10.000" expanded="true" height="124" name="Validation Vote" width="90" x="313" y="34">
         <parameter key="create_complete_model" value="false"/>
         <parameter key="split" value="relative"/>
         <parameter key="split_ratio" value="0.7"/>
@@ -239,16 +301,18 @@
         </process>
       </operator>
       <connect from_op="Retrieve Iris" from_port="output" to_op="Multiply (3)" to_port="input"/>
-      <connect from_op="Multiply (3)" from_port="output 1" to_op="Validation" to_port="training"/>
+      <connect from_op="Multiply (3)" from_port="output 1" to_op="Validation Vote" to_port="training"/>
       <connect from_op="Multiply (3)" from_port="output 2" to_op="Validation Naive bayes" to_port="training"/>
       <connect from_op="Multiply (3)" from_port="output 3" to_op="Validation k-NN" to_port="training"/>
       <connect from_op="Multiply (3)" from_port="output 4" to_op="Validation CART" to_port="training"/>
+      <connect from_op="Multiply (3)" from_port="output 5" to_op="Validation Bagging" to_port="training"/>
+      <connect from_op="Validation Bagging" from_port="averagable 1" to_port="result 7"/>
       <connect from_op="Validation CART" from_port="averagable 1" to_port="result 6"/>
       <connect from_op="Validation k-NN" from_port="averagable 1" to_port="result 5"/>
       <connect from_op="Validation Naive bayes" from_port="averagable 1" to_port="result 4"/>
-      <connect from_op="Validation" from_port="model" to_port="result 1"/>
-      <connect from_op="Validation" from_port="training" to_port="result 2"/>
-      <connect from_op="Validation" from_port="averagable 1" to_port="result 3"/>
+      <connect from_op="Validation Vote" from_port="model" to_port="result 1"/>
+      <connect from_op="Validation Vote" from_port="training" to_port="result 2"/>
+      <connect from_op="Validation Vote" from_port="averagable 1" to_port="result 3"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>
@@ -257,6 +321,7 @@
       <portSpacing port="sink_result 5" spacing="0"/>
       <portSpacing port="sink_result 6" spacing="0"/>
       <portSpacing port="sink_result 7" spacing="0"/>
+      <portSpacing port="sink_result 8" spacing="0"/>
     </process>
   </operator>
 </process>
