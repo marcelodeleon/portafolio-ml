@@ -5,7 +5,7 @@ date: "2021-10-23"
 slug: knn
 featured: ../images/knn/featured.png
 thumbnail: ../images/knn/thumbnail.png
-tags: ["k-NN", "K-Nearest Neighbors", "Algoritmos No Lineales", "Algoritmos Supervisados", "RapidMiner", "Excel"]
+tags: ["k-NN", "Algoritmos No Lineales", "Algoritmos Supervisados", "RapidMiner", "Excel"]
 ---
 
 K-Nearest Neighbors es un algoritmo de Machine Learning supervisado que puede

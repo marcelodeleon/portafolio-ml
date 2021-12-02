@@ -5,7 +5,7 @@ date: "2021-11-25"
 slug: house-pricing
 featured: ../images/house-pricing/featured.jpg
 thumbnail: ../images/house-pricing/thumbnail.png
-tags: ["Caso de Estudio", "Regresión", "Preparación del Dataset", "Proyecto Principal", "Voting", "Ensamble", "SVM", "Gradient Boosted Trees", "Regresión Linear"]
+tags: ["Caso de Estudio", "Regresión", "Preparación del Dataset", "Proyecto Principal", "Votación", "Ensambles", "SVM", "Gradient Boosted Trees", "Regresión Linear"]
 ---
 
 # Caso de Estudio
