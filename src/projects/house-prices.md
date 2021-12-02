@@ -5,7 +5,7 @@ date: "2021-11-25"
 slug: house-pricing
 featured: ../images/house-pricing/featured.jpg
 thumbnail: ../images/house-pricing/thumbnail.png
-tags: ["Caso de Estudio", "Regresión", "Preparación del Dataset", "Proyecto Principal"]
+tags: ["Caso de Estudio", "Regresión", "Preparación del Dataset", "Proyecto Principal", "Voting", "Ensamble", "SVM", "Gradient Boosted Trees", "Regresión Linear"]
 ---
 
 # Caso de Estudio
@@ -797,11 +797,17 @@ _Valores:_
 ### GarageYrBlt
 Año de construcción del garaje.
 
-_Tipo:_ Entero
+_Tipo:_ Categórico
 
 _Observación:_ Existen 81 valores (5.55%) con valor "NA". En este contexto, podría
 tomarse como que la vivienda no tiene garaje.
 ![Análisis estadístico de GarageYrBlt](../images/house-pricing/attrs/garage-yr-blt.png)
+
+_Transformación_: El atributo fue transformado a numérico al cargar el dataset.
+Esto se debe a que tiene más sentido en el contexto de una regresión como un
+valor numérico que un valor categórico
+
+![Análisis estadístico de GarageYrBlt luego de la transformación](../images/house-pricing/attrs/grarage-yr-blt-transf.png)
 
 ### GarageFinish
 Acabado interior del garaje.
@@ -1041,10 +1047,12 @@ trabajo más profundo de detección de outliers y casos faltantes ya que
 cualquier información que se desprenda de éstos atributos no es de nuestro
 interés.
 
-## Configuración de la Variable de Salida
+## Configuración de Atributos Especiales
 Debemos configurar la columna _SalePrice_ como nuestro "label". Esto le permite
-a RapidMiner entender que es la variable que queremos estimar en nuestros modelos
-de regresión. Para esto simplemente utilizaremos el operador de __SetRole__.
+a RapidMiner entender que es la variable que queremos estimar en nuestros
+modelos de regresión. Además, el atributo _Id_ no aporta información relevante
+para la problemática; por esto lo definiremos como atributo "id".Para esto
+simplemente utilizaremos el operador de __SetRole__.
 
 ## Eliminación de Atributos dado el Contexto del Problema
 El objetivo del algoritmo de regresión es predecir el valor de una propiedad
@@ -1058,7 +1066,6 @@ Los atributos a descartar son:
 * _YrSold_: Año de la venta (MM).
 * _SaleType_: Tipo de venta.
 * _SaleCondition_: Condición de la venta.
-* _Id_: Representa el numero de ítem, no aporta valor al resultado final.
 
 Éstos atributos serán filtrados en el proceso de RapidMiner con el operador
 __SelectAtributes__.
@@ -1084,10 +1091,242 @@ relación precio/tamaño no condicen. Dado el efecto tan representativo de los
 outliers en los algoritmos de regresión y la cantidad baja de los mismos,
 optamos por eliminar estas instancias del dataset.
 
+## Normalización
+Se realizó una normalización de los datos escalando y centrando los atributos,
+esto se debe a que los algoritmos de regresión son particularmente sensibles
+a datos con escalas diferentes. Para la normalización se utilizo el operador
+__Normalize__ aplicando el método "Z-transformation".
+
+## Datos Faltantes
+En líneas generales el dataset tiene pocos datos faltantes, hay solamente tres 
+atributos afectados: _LotFrontage_, GarageYrBlt y _MasVnrArea_. Para el caso de _MasVnrArea_,
+tenemos solamente 8 instancias y sabemos que el valor faltante no significa que
+no haya mampostería (ya que existe un valor "None" que indica eso); para este
+atributo simplemente eliminaremos las instancias con datos faltantes.
+
+El atributo _LotFrontage_ tiene 258 valores faltantes, y el atributo
+_GarageYrBlt_ 81. Al ser valores numéricos y tener una cantidad considerable de
+valores faltantes utilizaremos el operador __Replace Missing Values__. Los
+valores faltantes serán reemplazados por el valor promedio.
+
 ## Tratamiento de Variables Categóricas
 Las variables Nominales, Polinominales y Categóricas no pueden utilizarse 
 correctamente en la regresión ya que se esperan valores numéricos. Existen casos
 de variables categóricas que en representan un puntaje numérico, en estos
 casos simplemente podríamos convertir esas columnas a números. Además, tenemos
 otras variables categóricas que no pueden transformarse directamente a variables
-numéricas, en esos casos utilizaremos variables "dummy". A continuación
+numéricas, en esos casos utilizaremos variables "dummy".
+
+### Variables Categóricas Ordinales
+Las siguientes variables pueden simplemente transformarse a valores numéricos,
+esto se debe a que a pesar de ser categóricas, representan una relación de
+orden entre los valores.
+
+Las variables son:
+
+LotFrontage,
+OverallQual,
+ExterQual,
+ExterCond,
+BsmtQual,
+BsmtCond,
+BsmtExposure,
+KitchenQual,
+FireplaceQu,
+GarageCond,
+GarageQual,
+GarageYrBlt,
+y PoolQC
+
+Los atributos _LotFrontage_ y _GarageYrBlt_ fueron transformados a valores
+numéricos cuando se cargó el dataset en RapidMiner.  El resto fueron adaptadas
+con el operador __Nominal to Numerical__, definiendo el parámetro _coding_type_
+como "unique integers".
+
+### Variables Categóricas No Ordinales
+Las variables categóricas del dataset no representan un orden y no tiene
+sentido aplicar el mismo tratamiento que aplicamos en la sección anterior. En
+este caso utilizaremos las variables "dummy", que nos permiten codificar
+variables categóricas en múltiples variables numéricas
+
+Alley,
+BldgType,
+BsmtFinType1,
+BsmtFinType2,
+CentralAir,
+Condition1,
+Condition2,
+Electrical,
+Exterior1st,
+Exterior2nd,
+Fence,
+Foundation,
+Functional,
+GarageFinish,
+GarageType,
+Heating,
+HeatingQC,
+HouseStyle,
+LandContour,
+LandSlope,
+LotConfig,
+LotShape,
+MSSubClass,
+MSZoning,
+MasVnrType,
+MiscFeature
+Neighborhood,
+PavedDrive,
+RoofMatl,
+RoofStyle,
+Street,
+Utilities,
+
+# Feature Engineering
+
+## Correlaciones en los Atributos
+Se creo una matriz de correlaciones para los atributos numéricos.
+Observando la matriz, podemos determinar como primer paso las correlaciones más
+grandes del dataset. Luego de tener una lista definida, podemos realizar una
+correlacione entre estas variables y _SalePrice_ para entender cual de las
+variables aporta más a la estimación del precio.
+
+![Matriz de correlación para el dataset](../images/house-pricing/feat-eng/mc-attrs.png)
+
+Se observa una alta correlación entre los siguientes atributos (mayor a 0.8):
+* _GarageCond_ y _GarageQual_
+* _Fireplaces_ y _FireplaceQu_
+* _PoolQC_ y _PoolArea_
+* _GarageCars_ y _GarageArea_
+* _GrLivArea_ y _TotRmsAbvGrd_ 
+* GarageYrBlt y YearBuilt
+* TotalBsmtSF y 1stFlrSF
+
+A continuación realizaremos un estudio entre estas variables altamente
+correlacionadas y la variable objetivo _SalePrice_. Ésto nos permitirá
+tener información sobre el impacto final de los atributos en la estimación
+del valor del inmueble.
+
+![Matriz de correlación para los atributos más correlacionados entre sí y SalePrice](../images/house-pricing/feat-eng/cm-label.png)
+
+![Matriz de correlación para los atributos más correlacionados entre sí y SalePrice (ordenada por correlación a SalePrice)](../images/house-pricing/feat-eng/mc-label-numbers.png)
+
+Tenemos varios casos para estudiar de variables correlacionadas, analizaremos la
+posible explicación de la correlación, su relación con la variable objetivo y
+en base a esto tomaremos la decisión de que variables eliminar.
+
+### GarageCond y GarageQual
+La condición y la calidad del garaje tienen sentido en estar correlacionadas ya
+que materiales de mayor calidad tienden a mantener una mejor condición. Observando
+la relación con _SalePrice_ vemos que _GarageCond_ tiene una correlación de -0.245
+y _GarageQual_ tiene una correlación de -0.235. No existe una diferencia sustancial
+por lo que nos quedaremos con _GarageQual_.
+
+### Fireplaces y FireplaceQu
+_Fireplaces_ representa la cantidad de estufas mientras que _FireplaceQu_ su
+calidad. La correlación en este caso no es tan obvia, ya que la cantidad de
+estufas no tienen por qué significar un impacto en la calidad de las mismas.
+_Fireplaces_ tiene una correlación de 0.469 y _FireplaceQu_ 0.402 con respecto
+a _SalePrice_. En este caso nos quedaremos con las dos variables ya que no
+existe una explicación para la correlación que nos lleve a la decisión de
+quitar uno de los atributos.
+
+### PoolQC y PoolArea
+La calidad de la piscina y el área de la misma pueden estar correlacionadas,
+es probable que las piscinas de menor calidad sean mas pequeñas. Así como
+probablemente piscinas de mas alta calidad tengan un área mas grande.
+
+Con respecto a _SalePrice_, ambas tienen muy poca correlación.
+En este caso optamos por mantener a las dos variables. Recordad también que
+estas variables fueron transformadas de variables nominales a numéricas.
+ 
+### GarageCars y GarageArea
+La correlación en este caso es bastante obvia, mientras más espacio más autos
+podremos ubicar. _GarageCars_ tiene más correlación con _SalePrice_ (por muy
+poco margen) por lo que removeremos _GarageArea_
+ 
+### GrLivArea y TotRmsAbvGrd 
+En este caso la correlación también es fácil de ver, mientras mas área general
+de vivienda más cantidad de cuartos sobre el nivel del piso. _GrLivArea_ tiene
+bastante más correlación con _SalePrice_ por lo que removeremos _TotRmsAbvGrd_.
+
+### GarageYrBlt y YearBuilt
+Claramente estas variables estan muy correlacionadas, si bien es probable que
+se difiera en los anos en que se construye un garaje y una vivienda lo más
+común es que se hagan al mismo tiempo. _YearBuilt_ tiene más correlación con
+_SalePrice_, además no tiene datos faltantes. GarageYrBlt tiene unos cuantos datos que faltan, aunque probablemente sean por el hecho de que la vivienda no tiene
+garaje. De todas formas, removeremos _GarageYrBlt_.
+
+### TotalBsmtSF y 1stFlrSF
+Es común que el sótano tenga las mismas dimensiones que el primer piso, o por
+lo menos sean bastante similares. La correlación es clara en este ejemplo.
+_TotalBsmtSF_ tiene mayor correlación con _SalePrice_ por lo que eliminaremos
+_1stFlrSF_.
+
+### Resumen
+Del análisis anterior podemos determinar que removeremos los siguientes atributos:
+* GarageCond
+* GarageArea
+* TotRmsAbvGrd
+* GarageYrBlt
+* 1stFlrSF
+
+## PCA
+Se realizo un análisis PCA, manteniendo una varianza de 0.95%. El resultado fue
+llamativo ya que se obtuvieron 34 componentes principales (igual número de
+variables analizadas). No hubo una reducción en la dimensión, esto puede deberse
+a que se quitaron algunos atributos (ver Eliminación de Atributos dado el Contexto del Problema) que no tenían relación con el precio final de la venta. Cabe destacar
+que antes de poder realizar el análisis de PCA se realizo el tratamiento de
+outliers, normalización de datos y tratamiento de datos faltantes.
+
+![Varianza acumulada para análisis PCA](../images/house-pricing/feat-eng/pca-plot.png)
+
+# Modelado
+Utilizaremos diferentes modelos de regresión: Regresión Lineal, Gradient Boosting Trees, RandomForest y un algoritmo de votación con los tres operadores dentro.
+
+A continuación se muestran las configuraciones de los modelos:
+
+
+
+# Evaluación
+Para la evaluación se utilizará split validation con un 70% de entrenamiento y
+un %30 testing, y una semilla (1992) para poder comparar correctamente. No se
+utilizó cross validation (a pesar de ser el esquema de validación preferido en
+la mayoría de los casos) por un tema de tiempo, son muchos modelos a comparar y
+la ejecución demoraba mucho en finalizar.
+
+
+| Modelo                  | R<sup>2</sup> | RMSE      |
+| ----------------------- | ------------- | --------- |
+| Random Forest           | 0.872         | 34126.973 |
+| Gradient Boosting Trees | 0.836         | 55448.722 |
+| Regresión Lineal        | 0.890         | 26210.603 |
+| Vote                    | 0.882         | 42365.028 |
+
+
+<figcaption>Tabla comparativa de los resultados obtenidos en los modelos</figcaption>
+
+# Conclusiones
+El trabajo dejo clara la importancia de la preparación de datos en los
+algoritmos de regresión, si bien los modelos tuvieron diferencias no fueron
+significativas, lo realmente determinante en este caso fue el tratamiento del
+dataset. Utilizando el dataset original se llegaba a valores de R<sup>2</sup>
+aproximados a 0.6, y al intentarse varias combinaciones no se vieron buenos
+resultados.
+
+El simple hecho de normalizar, eliminar outliers y tratar datos faltantes
+mejoró claramente los resultados. Luego de todo el análisis, reduciendo
+cantidad de atributos y tratando variables nominales se llegó a un buen
+resultado. Es llamativo que el mejor algoritmo fue la regresión lineal,
+llegando a 0.89. Probablemente haya habido un poco de overfitting y algoritmos
+como Vote que tuvieron 0.88 estén mejor preparados para estimar mejor nuevos
+datos.
+
+# Anexo (Proceso de Rapidminer)
+A continuación se muestran imágenes del proceso de RapidMiner para el proyecto.
+
+![Subproceso de preparación de datos](../images/house-pricing/sp-data-prep.png)
+
+![Proceso completo de RapidMiner](../images/house-pricing/rm-process.png)
+
+[>> Descarga del Proyecto de Rapidminer](house-pricing.rmp)
