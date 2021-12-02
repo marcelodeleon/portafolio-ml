@@ -1,6 +1,7 @@
 import React from "react"
-import Layout from '../components/Layout'
+import Layout from "../components/Layout"
 import PropTypes from "prop-types"
+import * as styles from "../styles/home.module.css"
 
 // Components
 import { Link, graphql } from "gatsby"
@@ -8,27 +9,33 @@ import { Link, graphql } from "gatsby"
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
-  const tagHeader = `Posts con el Tag "${tag}"`
 
   return (
     <Layout>
-      <div>
-        <h1>{tagHeader}</h1>
-        <ul>
+      <div style={{ padding: "8em 8em 10em" }}>
+        <div style={{ display: "flex", "align-items": "center" }}>
+          <img
+            className={styles.icon}
+            src={`../../icons/shopping.png`}
+            alt="Tag icon"
+          />
+          <h1>{tag}</h1>
+        </div>
+        <ul style={{ "padding-top": "2em" }}>
           {edges.map(({ node }) => {
             const { title, slug, headline } = node.frontmatter
             return (
               <li
                 key={slug}
                 style={{
-                  padding: "1em",
                   "text-align": "center",
                   "list-style-type": "none",
+                  "padding-bottom": "0.5em",
                 }}
               >
-              <Link style={{ color: "#FF5555" }} to={`/projects/${slug}`}>
-                {title}: {headline}
-              </Link>
+                <Link style={{ color: "#FF5555" }} to={`/projects/${slug}`}>
+                  {title}: {headline}
+                </Link>
               </li>
             )
           })}
@@ -64,7 +71,7 @@ Tags.propTypes = {
 export default Tags
 
 export const pageQuery = graphql`
-  query($tag: String) {
+  query ($tag: String) {
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }

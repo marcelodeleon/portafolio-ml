@@ -3,8 +3,9 @@ import PropTypes from "prop-types"
 // Components
 import { Helmet } from "react-helmet"
 import { Link, graphql } from "gatsby"
-import Layout from '../../components/Layout'
-import Tag from '../../components/Tag'
+import Layout from "../../components/Layout"
+import Tag from "../../components/Tag"
+import * as styles from "../../styles/home.module.css"
 const TagsPage = ({
   data: {
     allMarkdownRemark: { group },
@@ -14,16 +15,21 @@ const TagsPage = ({
   },
 }) => (
   <Layout>
-    <div>
+    <div style={{ padding: "8em 8em 10em" }}>
       <Helmet title={title} />
-      <h1>Tags</h1>
-    <p>
-      Selecciona una habilidad para filtrar los proyectos.
-    </p>
+      <div style={{ display: "flex", "align-items": "center" }}>
+        <img
+          className={styles.icon}
+          src={`./icons/shopping.png`}
+          alt="Tag icon"
+        />
+        <h1>Tags</h1>
+      </div>
+      <p>Selecciona una habilidad para filtrar los proyectos.</p>
 
-    {group.map(tag => (
-      <Tag name={tag.fieldValue} />
-    ))}
+      {group.map(tag => (
+        <Tag name={tag.fieldValue} />
+      ))}
     </div>
   </Layout>
 )

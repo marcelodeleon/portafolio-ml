@@ -27,8 +27,7 @@
   margin-top: 40px;
 }
 .featured {
-  margin-bottom: 40px;
-  width: 100%;
+  padding: 4em 8em 2em;
 }
 .featured h1 {
   font-size: 2.5em;
