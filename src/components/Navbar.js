@@ -1,10 +1,12 @@
 import { Link } from "gatsby"
 import React from "react"
 
+import MarceIcon from "./MarceIcon"
+
 export default function Navbar() {
   return (
-    <nav>
-      <img src="./marce.png" style={{ width: "50px"}} />
+    <nav style={{ display: "flex" }}>
+      <MarceIcon pathToStatic="." />
       <div className="links">
         <Link to="/">Principal</Link>
         <Link to="/projects">Proyectos</Link>

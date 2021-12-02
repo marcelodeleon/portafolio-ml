@@ -30,17 +30,19 @@ li, li > ul > li {
 }
 /* layout & nav */
 .layout {
-  max-width: 1200px;
   margin: 0 auto;
 }
 nav {
   display: grid;
+  justify-content: space-between;
   grid-template-columns: 1fr 1fr;
-  margin: 40px auto;
+  padding: 1em 7em;
+  background: #9580FF;
 }
 nav .links {
-  display: inline-block;
-  text-align: right;
+  display: flex;
+  align-items: center;
+  font-size: 1.4em;
 }
 nav a {
   display: inline-block;
@@ -48,15 +50,17 @@ nav a {
   font-weight: 400;
   padding-bottom: 8px;
   border-bottom: 3px solid transparent;
-  color: #9580FF;
+  color: #FFFFFF;
 }
 nav a:hover {
   border-color: #FF5555;
 }
+footer {
+  background: #9580FF;
+  margin-top: 2em;
+}
 footer p{
   text-align: center;
-  color: #bbb;
-  margin: 40px auto;
 }
 .katex { font-size: 1.5em !important; } 
 th, td {
