@@ -18,12 +18,12 @@ const ProjectDetails = ({ data, pageContext }) => {
       <section className={styles.featured}>
         <h1>{title}</h1>
         <p className={styles.subheading}>{headline}</p>
-        <div style={{ "margin-bottom": "3em", "text-align": "center" }}>
+        <div style={{ "marginBottom": "3em", "textAlign": "center" }}>
           {tags.map(tag => (
-            <Tag name={tag} />
+            <Tag name={tag} key={tag} />
           ))}
         </div>
-        <div style={{ display: "flex", "justify-content": "center" }}>
+        <div style={{ display: "flex", "justifyContent": "center" }}>
           <GatsbyImage image={featuredImg} alt="Featured Image" />
         </div>
       </section>
@@ -34,9 +34,9 @@ const ProjectDetails = ({ data, pageContext }) => {
         />
       </div>
       <section className={styles.featured}>
-        <div style={{ "margin-bottom": "3em", "text-align": "center" }}>
+        <div style={{ "marginBottom": "3em", "textAlign": "center" }}>
           {tags.map(tag => (
-            <Tag name={tag} />
+            <Tag name={tag} key={tag} />
           ))}
         </div>
         <div className={styles.walker}>
