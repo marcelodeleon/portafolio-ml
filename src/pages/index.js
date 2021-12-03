@@ -9,7 +9,7 @@ export default function Home() {
     <Layout>
       <section className={styles.header}>
         <div>
-          <h2>Diseña</h2>
+          <h2>Analiza</h2>
           <h3>Modela & Evalúa</h3>
           <p>Portafolio de Machine Learning.</p>
           <Link className={styles.btn} to="/projects">
