@@ -1287,11 +1287,12 @@ Boosting Trees, RandomForest y un algoritmo de votación con los tres operadores
 dentro.
 
 ## RandomForest
-Para RandomForest vamos a utilizar 300 árboles, el valor por defecto del
+Para RandomForest vamos a utilizar 1000 árboles, el valor por defecto del
 operador es 100 (que es un poco bajo). Según el paper realizado por Leo
-Breiman[^1], se recomiendan 1000 arboles. Además, permitiremos una profundidad
-máxima de 10 y utilizaremos el critero "least_square" para la selección de
-atributos al momento de construir los árboles.
+Breiman[^1], se recomiendan 1000 arboles por lo que vamos a seguir su
+recomendación. Además, permitiremos una profundidad máxima de 10 y utilizaremos
+el critero "least_square" para la selección de atributos al momento de
+construir los árboles.
 [^1]: https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf
 
 El resto de las configuraciones se muestra a continuación:
@@ -1348,10 +1349,10 @@ muchos modelos a comparar y la ejecución demoraba mucho en finalizar.
 
 | Modelo                  | R<sup>2</sup> | RMSE      |
 | ----------------------- | ------------- | --------- |
-| Random Forest           | 0.872         | 34126.973 |
-| Gradient Boosting Trees | 0.836         | 55448.722 |
+| Random Forest           | 0.870         | 34002.606 |
+| Gradient Boosting Trees | 0.900         | 25324.577 |
 | Regresión Lineal        | 0.890         | 26210.603 |
-| Vote                    | 0.878         | 34084.037 |
+| Vote                    | 0.879         | 34051.616 |
 
 
 <figcaption>Tabla comparativa de los resultados obtenidos en los modelos</figcaption>
@@ -1367,10 +1368,11 @@ resultados.
 El simple hecho de normalizar, eliminar outliers y tratar datos faltantes
 mejoró claramente los resultados. Luego de todo el análisis, reduciendo
 cantidad de atributos y tratando variables nominales se llegó a un buen
-resultado. Es llamativo que el mejor algoritmo fue la regresión lineal,
-llegando a 0.89. Probablemente haya habido un poco de overfitting y algoritmos
-como Vote que tuvieron 0.88 estén mejor preparados para estimar mejor nuevos
-datos.
+resultado. El algoritmo que obtuve mejores resutlados fue "Gradient Boosted Trees",
+la diferencia con el resto no es demasiada y como vemos todos los algoritmos tuvieron
+un muy buen desempeño. Destacamos la importancia del algoritmo Vote, ya que utiliza
+los resultados de todos los algoritmos y con esto podemos evitar sesgos inherentes
+a cada una de las estrategias.
 
 # Anexo (Proceso de Rapidminer)
 A continuación se muestran imágenes del proceso de RapidMiner para el proyecto.
@@ -1379,4 +1381,4 @@ A continuación se muestran imágenes del proceso de RapidMiner para el proyecto
 
 ![Proceso completo de RapidMiner](../images/house-pricing/rm-process.png)
 
-[>> Descarga del Proyecto de Rapidminer](house-pricing.rmp)
+[>> Descarga del Proyecto de Rapidminer](ames.rmp)
