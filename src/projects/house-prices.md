@@ -1,11 +1,11 @@
 ---
 title: Venta de propiedades en Ames, Iowa.
 headline: Estimación de precios de ventas utilizando algoritmos de regresión. 
-date: 2021-11-30
+date: 2021-12-04
 slug: house-pricing
 featured: ../images/house-pricing/featured.jpg
 thumbnail: ../images/house-pricing/thumbnail.png
-tags: ["Caso de Estudio", "Regresión", "Preparación del Dataset", "Proyecto Principal", "Votación", "Ensambles", "Gradient Boosted Trees", "Regresión Lineal", "Feature Engineering", "PCA", "Modelado"]
+tags: ["Caso de Estudio", "Regresión", "Preparación del Dataset", "Proyecto Principal", "Votación", "Ensambles", "Gradient Boosted Trees", "Regresión Lineal", "Feature Engineering", "PCA", "Modelado", "Boosting"]
 ---
 
 # Caso de Estudio
@@ -1282,18 +1282,68 @@ outliers, normalización de datos y tratamiento de datos faltantes.
 ![Varianza acumulada para análisis PCA](../images/house-pricing/feat-eng/pca-plot.png)
 
 # Modelado
-Utilizaremos diferentes modelos de regresión: Regresión Lineal, Gradient Boosting Trees, RandomForest y un algoritmo de votación con los tres operadores dentro.
+Utilizaremos diferentes modelos de regresión: Regresión Lineal, Gradient
+Boosting Trees, RandomForest y un algoritmo de votación con los tres operadores
+dentro.
 
-A continuación se muestran las configuraciones de los modelos:
+## RandomForest
+Para RandomForest vamos a utilizar 300 árboles, el valor por defecto del
+operador es 100 (que es un poco bajo). Según el paper realizado por Leo
+Breiman[^1], se recomiendan 1000 arboles. Además, permitiremos una profundidad
+máxima de 10 y utilizaremos el critero "least_square" para la selección de
+atributos al momento de construir los árboles.
+[^1]: https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf
 
+El resto de las configuraciones se muestra a continuación:
 
+![Parámetros de RandomForest](../images/house-pricing/model/rm-params.png)
+
+## Gradient Boosting Trees
+Éste modelo es un modelo de ensamble que que mejora los resultados a través de
+mejoras graduales de la performance. Es por esto que el número de árboles a elegir
+y la profundidad son muy importantes.
+
+Con los valores por defecto (numero de arboles: 50, profundidad: 5)no obtuvimos
+muy buenos resultados: 
+
+$$
+R^2: 0.836\\
+RMSE: 55448.722
+$$
+
+Esto lo pudimos mejorar notoriamente (como se puede ver en la próxima sección) aumentando
+el número de árboles a 500 y la profundidad a 10.
+
+![Parámetros de Gradient Boosted Trees](../images/house-pricing/model/gbt-params.png)
+
+## Linear Regression
+El operador de regresión lineal obtuvo buenos resultados con los valores por defecto,
+el único cambio que se le hizo fue quitar _feature_selection_, ya que es un hiperparametro
+que le indica a la regresión que atributos ir quitando. Los resultados obtenidos
+sin este parámetro activado fueron similares, por lo que el análisis de feature engineering
+realizado parece haber surtido efecto.
+
+![Parámetros de Linear Regression](../images/house-pricing/model/lr-params.png)
+
+Es posible que este algoritmo esté teniendo problemas de over-fitting para este dataset.
+Por lo que los buenos resultados obtenidos que se pueden ver en la próxima sección
+deben ser tomados con cuidado.
+
+## Vote
+Por último, utilizaremos un el algoritmo de votación para agregar diversidad a
+las estimaciones y tener mejor capacidad de generalizar los resultados. Con
+esto evitamos caer en situaciones donde exista over-fitting del dataset de
+entrenamiento. El ensamble está configurado con los modelos que vimos
+anteriormente.
+
+![Modelado de Vote](../images/house-pricing/model/v-p.png)
 
 # Evaluación
-Para la evaluación se utilizará split validation con un 70% de entrenamiento y
-un %30 testing, y una semilla (1992) para poder comparar correctamente. No se
-utilizó cross validation (a pesar de ser el esquema de validación preferido en
-la mayoría de los casos) por un tema de tiempo, son muchos modelos a comparar y
-la ejecución demoraba mucho en finalizar.
+Para la evaluación se utilizará split validation con un 70% de entrenamiento,
+un %30 testing, sampleo aleatorio y una semilla (1992) para poder comparar
+correctamente. No se utilizó cross validation (a pesar de ser el esquema de
+validación preferido en la mayoría de los casos) por un tema de tiempo, son
+muchos modelos a comparar y la ejecución demoraba mucho en finalizar.
 
 
 | Modelo                  | R<sup>2</sup> | RMSE      |
@@ -1301,7 +1351,7 @@ la ejecución demoraba mucho en finalizar.
 | Random Forest           | 0.872         | 34126.973 |
 | Gradient Boosting Trees | 0.836         | 55448.722 |
 | Regresión Lineal        | 0.890         | 26210.603 |
-| Vote                    | 0.882         | 42365.028 |
+| Vote                    | 0.878         | 34084.037 |
 
 
 <figcaption>Tabla comparativa de los resultados obtenidos en los modelos</figcaption>
