@@ -17,7 +17,7 @@ const TagsPage = ({
   <Layout>
     <div style={{ padding: "8em 8em 10em" }}>
       <Helmet title={title} />
-      <div style={{ display: "flex", "align-items": "center" }}>
+      <div style={{ display: "flex", "alignItems": "center" }}>
         <img
           className={styles.icon}
           src={`./icons/shopping.png`}
@@ -28,7 +28,7 @@ const TagsPage = ({
       <p>Selecciona una habilidad para filtrar los proyectos.</p>
 
       {group.map(tag => (
-        <Tag name={tag.fieldValue} />
+        <Tag name={tag.fieldValue} key={tag.fieldValue} />
       ))}
     </div>
   </Layout>
