@@ -1,5 +1,7 @@
 .portfolio {
   text-align: center;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 .portfolio > h2 {
   font-size: 3em;
@@ -21,8 +23,17 @@
   text-align: center;
   margin: 20px auto 0px;
   font-weight: 500;
+  color: #9580FF;
+  font-size: 1.4em;
 }
 .projects p {
-  color: #ccc;
-  margin-top: 4px;
+    color: #22212C;
+    font-weight: light;
+    margin-top: 4px;
+      font-size: 1em;
+}
+.project {
+    max-width: 25em;
+}
+.project img {
 }

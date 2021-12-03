@@ -15,17 +15,17 @@ const Projects = ({ data }) => {
     <Layout>
       <div className={styles.portfolio}>
         <h2>Portafolio</h2>
-        <h3>Proyectos y articulos de Machine Learning</h3>
+        <h3>Proyectos y Artículos de Machine Learning</h3>
         <div className={styles.projects}>
           {orderedProjects.map(project => (
-            <Link to={"/projects/" + project.frontmatter.slug} key={project.id}>
+            <Link className={styles.project} to={"/projects/" + project.frontmatter.slug} key={project.id}>
               <div>
-                <GatsbyImage
-                  image={getImage(project.frontmatter.thumbnail)}
-                  alt="Thumbnail"
-                />
-                <h3>{project.frontmatter.title}</h3>
-                <p>{project.frontmatter.headline}</p>
+                  <GatsbyImage
+                    image={getImage(project.frontmatter.thumbnail)}
+                    alt="Thumbnail"
+                  />
+                  <h3>{project.frontmatter.title}</h3>
+                  <p>{project.frontmatter.headline}</p>
               </div>
             </Link>
           ))}
