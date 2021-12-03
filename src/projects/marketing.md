@@ -285,6 +285,8 @@ Estos gráficos tienen un uso similar al anterior, y permiten otra visualizació
 problema. Aquí podemos ver claramente la tendencia de la predicción de los clientes
 a medida que el umbral se cambia.
 
+Para crear los gráficos ROC, necesitamos seleccionar la opción (AUC) en el operador
+de __Performance__ de RapidMiner.
 ![Gráfico ROC](../images/marketing/auc.png)
 
 En el eje "x" podemos ver el ratio para los valores clasificados como falsos positivos
