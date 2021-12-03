@@ -5,7 +5,7 @@ date: 2021-10-05
 slug: cart-platforms
 featured: ../images/cart-platforms/featured.jpg
 thumbnail: ../images/cart-platforms/thumbnail.png
-tags: ["Python", "Scikit Learn", "Árboles de Decisión", "CART", "KNIME", "Weka", "RapidMiner", "Algoritmos Supervisados", "Modelado", "Clasificación", "Regresión", "Caso de Estudio"]
+tags: ["Python", "Scikit Learn", "CART", "KNIME", "Weka", "RapidMiner", "Algoritmos Supervisados", "Modelado", "Clasificación", "Regresión", "Caso de Estudio"]
 ---
 
 Existen varias plataformas para trabajar con algoritmos de Machine Learning, en
@@ -308,9 +308,6 @@ del modelo integrado en el operador del árbol de decisión mientras que RapidMi
 operadores específicos para validar los modelos (SplitValidation y CrossValidation por ejemplo),
 o el hecho de que tanto KNIME como Scikit Learn tienen un operador para árbol de regresion
 y otro para clasificación, mientras que RapidMiner y Weka usan un mismo operador para ambas.
-
-Por último, Scikit Learn es gratuito por lo que puede ser utilizado por cualquiera.
-El resto de las opciones vistas son pagas.
 
 # Recursos
 [>> Dataset Iris](iris.data)
