@@ -10,7 +10,6 @@ const Projects = ({ data }) => {
     (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
   )
 
-  console.log({ orderedProjects })
   return (
     <Layout>
       <div className={styles.portfolio}>

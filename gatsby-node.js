@@ -12,6 +12,9 @@ exports.createPages = async ({ graphql, actions }) => {
           frontmatter {
             slug
             tags
+            date
+            title
+            headline
           }
         }
       }
@@ -24,12 +27,22 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   const nodes = data.postsRemark.nodes
+  const orderedProjects = nodes.sort(
+    (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
+  )
 
-  nodes.forEach(node => {
+  console.log("printing nodes")
+  orderedProjects.map(x => console.log(x.frontmatter))
+
+  orderedProjects.forEach((node, index) => {
     actions.createPage({
       path: '/projects/'+ node.frontmatter.slug,
       component: path.resolve('./src/templates/project-details.js'),
-      context: { slug: node.frontmatter.slug }
+      context: {
+        slug: node.frontmatter.slug,
+        prev: index === 0 ? null : orderedProjects[index - 1],
+        next: index === (orderedProjects.length - 1) ? null : orderedProjects[index + 1],
+      }
     })
   })
 

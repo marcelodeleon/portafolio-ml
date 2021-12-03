@@ -30,6 +30,13 @@ export default function Layout({ children }) {
           >
             Flat Icons
           </a>
+          {", "}
+          <a
+            href="https://www.flaticon.com/authors/pixel-perfect"
+            title="Pixel perfect"
+          >
+            Pixel perfect
+          </a>
           {" y "}
           <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">
             Eucalyp
